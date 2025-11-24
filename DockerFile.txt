@@ -1,0 +1,27 @@
+FROM rocker/tidyverse:4.4.0
+
+LABEL maintainer="edward829"
+LABEL description="GWAS and MR Analysis Container"
+
+FROM rocker/tidyverse:4.4.0
+
+LABEL maintainer="edward829"
+LABEL description="GWAS and MR Analysis Container"
+
+RUN R -e "options(repos = c(RSPM = 'https://packagemanager.posit.co/cran/__linux__/jammy/latest', CRAN = 'https://cran.rstudio.com/')); \
+    cat('Installing additional packages from binary repo...\n'); \
+    install.packages(c('remotes', 'data.table', 'qqman', 'corrplot', 'forestplot', 'MendelianRandomization'))"
+
+RUN R -e "remotes::install_github('MRCIEU/TwoSampleMR', upgrade='never')"
+
+RUN R -e "required_pkgs <- c('tidyverse', 'data.table', 'qqman', 'TwoSampleMR', 'MendelianRandomization', 'corrplot', 'forestplot'); \
+    for(pkg in required_pkgs) { \
+        if(require(pkg, character.only=TRUE, quietly=TRUE)) { \
+            cat('✓', pkg, as.character(packageVersion(pkg)), '\n'); \
+        } else { \
+            stop(paste('Missing:', pkg)); \
+        } \
+    }"
+
+WORKDIR /home/analysis
+CMD ["R"]
