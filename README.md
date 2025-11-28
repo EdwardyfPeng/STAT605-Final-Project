@@ -28,3 +28,5 @@ Genetic correlation measures the extent to which the same genetic variants influ
 ### 3. Mendelian Randomization
 Mendelian Randomization uses significant genetic variants as instrumental variables to infer the causal effect of an exposure on an outcome.
 
+<img width="453" height="263" alt="image" src="https://github.com/user-attachments/assets/12562d9e-d282-4ec8-831b-b333be654222" />
+
