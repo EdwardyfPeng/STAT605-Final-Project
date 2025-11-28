@@ -15,6 +15,9 @@ Morningness describes an individual’s preference of getting up early. Among 9 
 ## Data
 We plan to collect GWAS data of 10 traits we previously discussed. These GWAS data can be obtained from GWAS Catalog (https://www.ebi.ac.uk/gwas/home). 
 
+<img src="https://github.com/user-attachments/assets/73bd0f11-1227-4f68-8f73-774b1bbc90cf" width="400">
+
+
 ## Methods
 ### 1. SNP-Heritability via LD Score Regression
 SNP heritability quantifies how much of the trait variance can be explained by all common SNPs, it can be computed as the regression slope of LD Score Regression.
