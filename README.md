@@ -13,7 +13,7 @@ Morningness describes an individual’s preference of getting up early. Among 9 
 
 
 ## Data
-We plan to collect GWAS data of 10 traits we previously discussed. These GWAS data can be obtained from GWAS Catalog (https://www.ebi.ac.uk/gwas/home). 
+We plan to collect GWAS data of 10 traits we previously discussed. These GWAS data can be obtained from GWAS Catalog (https://www.ebi.ac.uk/gwas/home). We have uploaded our data onto Madison Box (https://uwmadison.box.com/s/e4yqg7amxiz8w3372te8dpzjkd2i09rw). 
 
 <img src="https://github.com/user-attachments/assets/73bd0f11-1227-4f68-8f73-774b1bbc90cf" width="400">
 
