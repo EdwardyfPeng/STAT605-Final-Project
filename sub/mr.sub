@@ -1,0 +1,19 @@
+log    = log/project_jobs_$(i).log
+error  = error/project_jobs_$(i).err
+output = output/project_jobs_$(i).out
+container_image = docker://edward829/rgwas:v1 
+universe = container
+requirements = (HasCHTCStaging == true)
+executable = project.sh
+arguments = $(i)
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = project.R, data/chronotype.tsv, data/$(i).tsv, 1kg_hm3_QCed_noM/, plink_linux/
+transfer_output_files = chronotype_clumped.txt, \
+                        ivw_result_Chronotype_to_$(i)_strongIV.txt, \
+                        egger_result_Chronotype_to$(i)_strongIV.txt, \
+                        ivw_plot_top500_Chronotype_to_$(i)_labeled.png
+request_cpus = 1
+request_memory = 4GB
+request_disk = 4GB
+queue i from file_list.txt
