@@ -1,0 +1,29 @@
+universe = vanilla
+
+executable = gc.sh
+arguments  = $(t1) $(t2)
+
+output     = gc_logs/$(t1)__$(t2).out
+error      = gc_logs/$(t1)__$(t2).err
+log        = gc_logs/$(t1)__$(t2).gc.log
+
+getenv = True
+
+transfer_input_files = \
+    /home/hgao234/final/ldsc_results, \
+    /home/hgao234/final/ldsc-2.0.1, \
+    /home/hgao234/final/Data/1KG_REF
+
+# Use the existing Python container provided by the instructor
+container_image = file:///staging/jgillett/python_numpy_pandas_sklearn.sif
+
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+transfer_output_files   = gc_results
+
+request_cpus    = 1
+request_memory  = 4GB
+request_disk    = 10GB
+
+# Read pairs (t1, t2) from gc_list.txt (two columns: "trait1 trait2")
+queue t1, t2 from gc_list.txt
