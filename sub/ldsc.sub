@@ -1,0 +1,30 @@
+universe = vanilla
+
+
+executable = ldsc.sh
+arguments  = $(file)
+
+
+output     = logs/$(file).out
+error      = logs/$(file).err
+log        = logs/$(file).ldsc.log
+
+getenv = True
+
+transfer_input_files = \
+    /home/hgao234/final/Data/data/$(file), \
+    /home/hgao234/final/ldsc-2.0.1, \
+    /home/hgao234/final/Data/1KG_REF, \
+    /home/hgao234/final/Data/w_hm3.snplist
+    
+container_image = file:///staging/jgillett/python_numpy_pandas_sklearn.sif
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_output_files = ldsc_results
+
+
+request_cpus    = 1
+request_memory  = 5GB
+request_disk    = 10GB
+
+queue file from list.txt
